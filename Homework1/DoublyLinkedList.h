@@ -2,8 +2,8 @@
 
 typedef struct {
     int value;
-    struct LinkedListNode* next;
-} LinkedListNode;
+    struct DoublyLinkedListNode* next;
+} DoublyLinkedListNode;
 
 // Creates linked list node and returns the pointer of the created node
 LinkedListNode* createNode();
