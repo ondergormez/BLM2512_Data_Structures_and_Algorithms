@@ -9,4 +9,4 @@ typedef struct {
 DoublyLinkedListNode* createNode();
 
 // Prints all nodes in the linked list
-void printLinkedList(LinkedListNode* head);
+void printLinkedList(DoublyLinkedListNode* head);

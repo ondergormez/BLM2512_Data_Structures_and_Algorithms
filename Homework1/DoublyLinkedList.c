@@ -16,8 +16,8 @@ DoublyLinkedListNode* createNode()
     return newNode;
 }
 
-void printLinkedList(LinkedListNode* head)
+void printLinkedList(DoublyLinkedListNode* head)
 {
-    for (LinkedListNode* current = head; current != NULL; current = current->next)
+    for (DoublyLinkedListNode* current = head; current != NULL; current = current->next)
         printf("Node Address: 0x%p, Node Value: %d", current, current->value);
 }
