@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-LinkedListNode* createNode()
+DoublyLinkedListNode* createNode()
 {
     // TODO: initializes all bytes in the allocated storage to zero
-    LinkedListNode* newNode = (LinkedListNode*)malloc(sizeof(LinkedListNode));
+    DoublyLinkedListNode* newNode = (DoublyLinkedListNode*)malloc(sizeof(DoublyLinkedListNode));
 
     if (newNode == NULL) {
         printf("In function createNode(): Memory allocation error");
