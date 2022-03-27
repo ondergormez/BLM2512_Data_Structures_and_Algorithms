@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdbool.h>
+
 typedef struct {
     int value;
     struct DoublyLinkedListNode* next;
