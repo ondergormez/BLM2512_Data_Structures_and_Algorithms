@@ -9,4 +9,5 @@
 5. [Meson Build System - CMake Subprojects](https://mesonbuild.com/CMake-module.html#cmake-subprojects)
 5. [Meson Build System - Unit Tests](https://mesonbuild.com/Unit-tests.html)
 
-TODO: Generate coverage report in unit tests
+# TODOs
+* Generate coverage report in unit tests. Read [this](https://mesonbuild.com/Reference-manual_functions.html#test) first
