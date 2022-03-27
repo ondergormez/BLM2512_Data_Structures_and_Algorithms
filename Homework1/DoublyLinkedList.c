@@ -15,3 +15,9 @@ LinkedListNode* createNode()
 
     return newNode;
 }
+
+void printLinkedList(LinkedListNode* head)
+{
+    for (LinkedListNode* current = head; current != NULL; current = current->next)
+        printf("Node Address: 0x%p, Node Value: %d", current, current->value);
+}
