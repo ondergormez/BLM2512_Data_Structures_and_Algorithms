@@ -4,6 +4,7 @@
 
 typedef struct {
     int value;
+    struct DoublyLinkedListNode* previous;
     struct DoublyLinkedListNode* next;
 } DoublyLinkedListNode;
 
