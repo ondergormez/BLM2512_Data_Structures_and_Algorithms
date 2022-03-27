@@ -12,3 +12,6 @@ DoublyLinkedListNode* createNode();
 
 // Prints all nodes in the linked list
 void printLinkedList(DoublyLinkedListNode* head);
+
+// Inserts new node from the front of the linked list
+bool insertNode(DoublyLinkedListNode* head, int value);
