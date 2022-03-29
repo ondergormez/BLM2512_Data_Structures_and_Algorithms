@@ -22,7 +22,7 @@ int calculateMaxLevelSize(int arrayLength)
 
 FastLinkedListNode_t* createFastLinkedListNode()
 {
-    // TODO : initializes all bytes in the allocated storage to zero
+    /* TODO: initializes all bytes in the allocated storage to zero */
     FastLinkedListNode_t* newNode = (FastLinkedListNode_t*)malloc(sizeof(FastLinkedListNode_t));
 
     if (newNode == NULL) {
@@ -33,6 +33,8 @@ FastLinkedListNode_t* createFastLinkedListNode()
     newNode->previous = NULL;
     newNode->next = NULL;
     newNode->value = NULL;
+
+    return newNode;
 }
 
 FastLinkedListNode_t* insertHead(FastLinkedListNode_t* tail, DoublyLinkedListNode_t* value)
@@ -51,10 +53,11 @@ void printHeads(FastLinkedListNode_t* tail)
 {
     printf("********************* Heads *********************\n");
 
-    // Reversed print operation
-    for (FastLinkedListNode_t* current = tail; current != NULL; current = current->previous)
+    /* Reversed print operation */
+    FastLinkedListNode_t* current = NULL;
+    for (current = tail; current != NULL; current = current->previous)
         if (current->value != NULL)
-            printf("Node Address: 0x%x, Head Address Value: 0x%x\n", current, current->value);
+            printf("Node Address: 0x%p, Head Address Value: 0x%p\n", current, current->value);
 }
 
 FastLinkedListNode_t* createFastLinkedListLevels(FastLinkedListNode_t* headsOfFastLinkedList, DoublyLinkedListNode_t* downLevelHead, int downLevelNodeCount)
@@ -65,13 +68,13 @@ FastLinkedListNode_t* createFastLinkedListLevels(FastLinkedListNode_t* headsOfFa
 
     int nodeCount = (downLevelNodeCount + 1) / 2;
 
-    // seed with current time
+    /* seed with current time */
     srand((unsigned)time(NULL));
 
     int generatedNodeCount = 0;
     while (generatedNodeCount < nodeCount) {
 
-        // Get random index to first linked list node
+        /* Get random index to first linked list node */
         int index = rand() % downLevelNodeCount;
 
         if (isAlreadyGenerated[index])
@@ -85,7 +88,8 @@ FastLinkedListNode_t* createFastLinkedListLevels(FastLinkedListNode_t* headsOfFa
     DoublyLinkedListNode_t* head = createNode();
     DoublyLinkedListNode_t* currentNode = NULL;
     DoublyLinkedListNode_t* tail = NULL;
-    for (int index = 0; index < MAX_ELEMENT_COUNT; ++index) {
+    int index = 0;
+    for (index = 0; index < MAX_ELEMENT_COUNT; ++index) {
 
         if (isAlreadyGenerated[index] == false)
             continue;
@@ -99,7 +103,7 @@ FastLinkedListNode_t* createFastLinkedListLevels(FastLinkedListNode_t* headsOfFa
     }
 
     printf("********************* %d. Level *********************\n", level++);
-    printf("Head Address: 0x%x\n", head);
+    printf("Head Address: 0x%p\n", (void*)head);
     printLinkedList(head);
 
     if (tailOfHeadsLinkList == NULL)
@@ -111,15 +115,16 @@ FastLinkedListNode_t* createFastLinkedListLevels(FastLinkedListNode_t* headsOfFa
         return tailOfHeadsLinkList;
     }
 
-    return createFastLinkedListLevels(tail, head, nodeCount);
+    return createFastLinkedListLevels(tailOfHeadsLinkList, head, nodeCount);
 }
 
 void findValue(FastLinkedListNode_t* tailOfHeadsLinkedList, int searchedValue)
 {
-    // TODO: Use function for max level :)
+    /* TODO: Use function for max level :) */
     int currentLevel = 5;
-    // TODO: reverse search heads of linked list
-    for (FastLinkedListNode_t* current = tailOfHeadsLinkedList; current != NULL; current = current->previous) {
+    /* TODO: reverse search heads of linked list */
+    FastLinkedListNode_t* current = NULL;
+    for (current = tailOfHeadsLinkedList; current != NULL; current = current->previous) {
         printf("Searching in the level %d...\n", currentLevel);
         if (current->value != NULL) {
             DoublyLinkedListNode_t* node = searchValueInLinkedList(current->value, searchedValue);
@@ -140,20 +145,21 @@ void insertValueEachLevel(FastLinkedListNode_t* headsOfFastLinkedList, int value
 {
     int currentLevel = 1;
 
-    // actualLength getLinkedListLength(currentHead->value);
+    /* actualLength getLinkedListLength(currentHead->value); */
 
-    for (FastLinkedListNode_t* currentHead = headsOfFastLinkedList->next; currentHead != NULL; currentHead = currentHead->next) {
+    FastLinkedListNode_t* currentHead = NULL;
+    for (currentHead = headsOfFastLinkedList->next; currentHead != NULL; currentHead = currentHead->next) {
 
-        // İlk seviye ise kesin ekle
+        /* İlk seviye ise kesin ekle */
         if (currentHead->previous == headsOfFastLinkedList) {
             insertNodeWithOrder(currentHead->value, valueToBeAdd);
-            // TODO: Debug print
+            /* TODO: Debug print */
             printf("Adding to the %d. Level...\n", currentLevel++);
             printLinkedList(currentHead->value);
             continue;
         }
 
-        // TODO: Son seviyedeysek?
+        /* TODO: Son seviyedeysek? */
 
         int expectedLength = (getLinkedListLength(currentHead->previous->value) + 1) / 2;
         int actualLength = getLinkedListLength(currentHead->value);
@@ -168,32 +174,33 @@ void insertValueEachLevel(FastLinkedListNode_t* headsOfFastLinkedList, int value
         ++currentLevel;
     }
 
-    // 5. Seviye: 1  5. Seviye: 1
-    // 4. Seviye: 2  4. Seviye: 2
-    // 3. Seviye: 3  3. Seviye: 3
-    // 2. Seviye: 5  2. Seviye: 5
-    // 1. seviye: 9  1. seviye: 10
+    /* 5. Seviye: 1  5. Seviye: 1 */
+    /* 4. Seviye: 2  4. Seviye: 2 */
+    /* 3. Seviye: 3  3. Seviye: 3 */
+    /* 2. Seviye: 5  2. Seviye: 5 */
+    /* 1. seviye: 9  1. seviye: 10 */
 
-    // 5. Seviye: 1   5. Seviye: 1
-    // 4. Seviye: 2   4. Seviye: 2
-    // 3. Seviye: 3   3. Seviye: 3
-    // 2. Seviye: 5   2. Seviye: 6
-    // 1. seviye: 10  1. seviye: 11
+    /* 5. Seviye: 1   5. Seviye: 1 */
+    /* 4. Seviye: 2   4. Seviye: 2 */
+    /* 3. Seviye: 3   3. Seviye: 3 */
+    /* 2. Seviye: 5   2. Seviye: 6 */
+    /* 1. seviye: 10  1. seviye: 11 */
 
-    // 5. Seviye: 1   5. Seviye: 1
-    // 4. Seviye: 2   4. Seviye: 2
-    // 3. Seviye: 25   3. Seviye: 26
-    // 2. Seviye: 50   2. Seviye: 51
-    // 1. seviye: 100  1. seviye: 101
+    /* 5. Seviye: 1   5. Seviye: 1 */
+    /* 4. Seviye: 2   4. Seviye: 2 */
+    /* 3. Seviye: 25   3. Seviye: 26 */
+    /* 2. Seviye: 50   2. Seviye: 51 */
+    /* 1. seviye: 100  1. seviye: 101 */
 }
 
 void deleteValueFromEachLevel(FastLinkedListNode_t* headsOfFastLinkedList, int valueToBeDeleted)
 {
     int currentLevel = 1;
-    for (FastLinkedListNode_t* currentHead = headsOfFastLinkedList->next; currentHead != NULL; currentHead = currentHead->next) {
+    FastLinkedListNode_t* currentHead = NULL;
+    for (currentHead = headsOfFastLinkedList->next; currentHead != NULL; currentHead = currentHead->next) {
         DoublyLinkedListNode_t* nodeToBeDeleted = searchValueInLinkedList(currentHead->value, valueToBeDeleted);
 
-        // Silinecek değer zaten bu seviyede yok!
+        /* Silinecek değer zaten bu seviyede yok! */
         if (nodeToBeDeleted == NULL) {
             printf("Value not found in %d. Level. Skipping...\n", currentLevel++);
             continue;

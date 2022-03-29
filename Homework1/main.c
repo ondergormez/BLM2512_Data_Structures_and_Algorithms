@@ -7,7 +7,7 @@
 int main(void)
 {
     printf("Fast Linked List Implementation\n");
-    // FastLinkedListNode_t* list = NULL; // TODO: malloc and zerois
+    /* FastLinkedListNode_t* list = NULL;  TODO: malloc and zerois */
     DoublyLinkedListNode_t* firstLevelHead = createNode();
 
     DoublyLinkedListNode_t* tail = insertNode(firstLevelHead, 0);
@@ -26,7 +26,7 @@ int main(void)
     int length = getLinkedListLength(firstLevelHead);
     printf("Length of the linked list: %d\n", length);
 
-    //    createLevel((length + 1) / 2);
+    /*    createLevel((length + 1) / 2); */
 
     DoublyLinkedListNode_t* currentNode = getLinkedListNode(firstLevelHead, 7);
     printNode(currentNode);
@@ -43,12 +43,12 @@ int main(void)
 
     findValue(tailOfHeadsLinkedList, 8);
 
-    // TODO: Küçükten büyüğe sıralı bir linki listeye ekleme işlemini sırayı koruyarak yapar
-    // [{3, 5, 9, 15}] linkli listesine 6 değeri eklemek istersek [3 5 6 9 15]
-    // [{3, 5, 9, 15}] linkli listesine 1 değeri eklemek istersek [1 3 5 9 15]
-    // [{3, 5, 9, 15}] linkli listesine 20 değeri eklemek istersek [3 5 9 15 20]
-    // [{3, 5, 9, 15}] linkli listesine 9 değeri eklemek istersek [3 5 9 9 15]
-    // DoublyLinkedListNode_t* insertNodeWithOrder(DoublyLinkedListNode_t* head, int value);
+    /* TODO: Küçükten büyüğe sıralı bir linki listeye ekleme işlemini sırayı koruyarak yapar */
+    /* [{3, 5, 9, 15}] linkli listesine 6 değeri eklemek istersek [3 5 6 9 15] */
+    /* [{3, 5, 9, 15}] linkli listesine 1 değeri eklemek istersek [1 3 5 9 15] */
+    /* [{3, 5, 9, 15}] linkli listesine 20 değeri eklemek istersek [3 5 9 15 20] */
+    /* [{3, 5, 9, 15}] linkli listesine 9 değeri eklemek istersek [3 5 9 9 15] */
+    /* DoublyLinkedListNode_t* insertNodeWithOrder(DoublyLinkedListNode_t* head, int value); */
     DoublyLinkedListNode_t* testHead = createNode();
     DoublyLinkedListNode_t* testTail = NULL;
 
