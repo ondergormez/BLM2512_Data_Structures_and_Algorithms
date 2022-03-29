@@ -6,4 +6,8 @@ executable('FastLinkedList',
            'FastLinkedList.c',
            install : false)
 
+executable('FastLinkedListSingleFile',
+           '21501035.c',
+           install : false)
+
 subdir('tests')
