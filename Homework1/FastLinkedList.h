@@ -21,3 +21,5 @@ void printHeads(FastLinkedListNode_t* head);
 FastLinkedListNode_t* createFastLinkedListLevels(FastLinkedListNode_t* headsOfFastLinkedList, DoublyLinkedListNode_t* downLevelHead, int downLevelNodeCount);
 
 void findValue(FastLinkedListNode_t* tailOfHeadsLinkedList, int searchedValue);
+
+void deleteValueFromEachLevel(FastLinkedListNode_t* headsOfFastLinkedList, int valueToBeDeleted);

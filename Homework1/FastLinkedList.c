@@ -186,3 +186,21 @@ void insertValueEachLevel(FastLinkedListNode_t* headsOfFastLinkedList, int value
     // 2. Seviye: 50   2. Seviye: 51
     // 1. seviye: 100  1. seviye: 101
 }
+
+void deleteValueFromEachLevel(FastLinkedListNode_t* headsOfFastLinkedList, int valueToBeDeleted)
+{
+    int currentLevel = 1;
+    for (FastLinkedListNode_t* currentHead = headsOfFastLinkedList->next; currentHead != NULL; currentHead = currentHead->next) {
+        DoublyLinkedListNode_t* nodeToBeDeleted = searchValueInLinkedList(currentHead->value, valueToBeDeleted);
+
+        // Silinecek değer zaten bu seviyede yok!
+        if (nodeToBeDeleted == NULL) {
+            printf("Value not found in %d. Level. Skipping...\n", currentLevel++);
+            continue;
+        }
+
+        printf("Deleting value from the %d. Level...\n", currentLevel++);
+
+        deleteNode(nodeToBeDeleted);
+    }
+}
