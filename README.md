@@ -11,3 +11,10 @@
 
 # TODOs
 * Generate coverage report in unit tests. Read [this](https://mesonbuild.com/Reference-manual_functions.html#test) first
+
+# Installs
+
+```
+onder@debian-onder:~$ pip3 install meson
+onder@debian-onder:~$ pip3 install ninja
+```
