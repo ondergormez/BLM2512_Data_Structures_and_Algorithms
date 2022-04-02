@@ -14,6 +14,20 @@ int getRequiredBitCountForUnsigned(unsigned long value)
     return 32;
 }
 
+int getRequiredBitCountForSigned(signed long value)
+{
+    if (value >= -128)
+        return 8;
+
+    if (value >= -32768)
+        return 16;
+
+    if (value >= -8388608)
+        return 24;
+
+    return 32;
+}
+
 int main(void)
 {
     Stack_t stack = { 0 };
