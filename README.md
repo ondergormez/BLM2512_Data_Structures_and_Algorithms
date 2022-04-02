@@ -17,4 +17,5 @@
 ```
 onder@debian-onder:~$ pip3 install meson
 onder@debian-onder:~$ pip3 install ninja
+onder@debian-onder:~$ sudo apt install clang-format
 ```
