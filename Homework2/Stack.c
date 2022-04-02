@@ -82,3 +82,22 @@ bool peekValueFromStack(Stack_t* stack, int* pValue)
 
     return true;
 }
+
+void printValuesInStack(Stack_t* stack)
+{
+    int index = 0;
+
+    if (stack == NULL) {
+        printf("In function printValuesInStack(): Unable to print values in the stack. Stack pointer null!");
+        return;
+    }
+
+    if (isStackEmpty(stack)) {
+        printf("In function printValuesInStack(): Unable to print values in the stack.  Stack empty!");
+        return;
+    }
+
+    printf("Values in stack: \n");
+    for (index = 0; index < stack->top; ++index)
+        printf("%d. index: %d\n", index, stack->item[index]);
+}
