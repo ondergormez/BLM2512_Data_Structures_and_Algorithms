@@ -10,3 +10,5 @@ typedef struct Stack {
 } Stack_t;
 
 bool isStackEmpty(Stack_t* stack);
+
+bool isStackFull(Stack_t* stack);
