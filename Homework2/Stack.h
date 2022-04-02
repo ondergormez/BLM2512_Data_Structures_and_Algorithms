@@ -20,3 +20,7 @@ bool pushToStack(Stack_t* stack, int value);
 /* Returns true: success */
 /* Returns false: failure */
 bool popFromStack(Stack_t* stack, int* pValue);
+
+/* Returns true: success */
+/* Returns false: failure */
+bool peekValueFromStack(Stack_t* stack, int* pValue);

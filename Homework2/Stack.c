@@ -60,3 +60,25 @@ bool popFromStack(Stack_t* stack, int* pValue)
 
     return true;
 }
+
+bool peekValueFromStack(Stack_t* stack, int* pValue)
+{
+    if (stack == NULL) {
+        printf("In function peekValueFromStack(): Unable to peek data from the stack. Stack pointer null!");
+        return false;
+    }
+
+    if (pValue == NULL) {
+        printf("In function peekValueFromStack(): Unable to peek data from the stack. Value pointer null!");
+        return false;
+    }
+
+    if (isStackEmpty(stack)) {
+        printf("In function peekValueFromStack(): Unable to peek data from the stack. Stack empty!");
+        return false;
+    }
+
+    *pValue = stack->item[stack->top - 1];
+
+    return true;
+}
