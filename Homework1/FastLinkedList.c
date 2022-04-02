@@ -135,3 +135,54 @@ void findValue(FastLinkedListNode_t* tailOfHeadsLinkedList, int searchedValue)
 
     printf("Value not find in any level!\n");
 }
+
+void insertValueEachLevel(FastLinkedListNode_t* headsOfFastLinkedList, int valueToBeAdd)
+{
+    int currentLevel = 1;
+
+    // actualLength getLinkedListLength(currentHead->value);
+
+    for (FastLinkedListNode_t* currentHead = headsOfFastLinkedList->next; currentHead != NULL; currentHead = currentHead->next) {
+
+        // İlk seviye ise kesin ekle
+        if (currentHead->previous == headsOfFastLinkedList) {
+            insertNodeWithOrder(currentHead->value, valueToBeAdd);
+            // TODO: Debug print
+            printf("Adding to the %d. Level...\n", currentLevel++);
+            printLinkedList(currentHead->value);
+            continue;
+        }
+
+        // TODO: Son seviyedeysek?
+
+        int expectedLength = (getLinkedListLength(currentHead->previous->value) + 1) / 2;
+        int actualLength = getLinkedListLength(currentHead->value);
+
+        if (expectedLength != actualLength) {
+            insertNodeWithOrder(currentHead->value, valueToBeAdd);
+            printf("Adding to the %d. Level...\n", currentLevel++);
+            printLinkedList(currentHead->value);
+            continue;
+        }
+
+        ++currentLevel;
+    }
+
+    // 5. Seviye: 1  5. Seviye: 1
+    // 4. Seviye: 2  4. Seviye: 2
+    // 3. Seviye: 3  3. Seviye: 3
+    // 2. Seviye: 5  2. Seviye: 5
+    // 1. seviye: 9  1. seviye: 10
+
+    // 5. Seviye: 1   5. Seviye: 1
+    // 4. Seviye: 2   4. Seviye: 2
+    // 3. Seviye: 3   3. Seviye: 3
+    // 2. Seviye: 5   2. Seviye: 6
+    // 1. seviye: 10  1. seviye: 11
+
+    // 5. Seviye: 1   5. Seviye: 1
+    // 4. Seviye: 2   4. Seviye: 2
+    // 3. Seviye: 25   3. Seviye: 26
+    // 2. Seviye: 50   2. Seviye: 51
+    // 1. seviye: 100  1. seviye: 101
+}
