@@ -9,3 +9,4 @@ catch2_proj = cmake.subproject('Catch2')
 catch2_dep = catch2_proj.dependency('Catch2')
 
 subdir('Homework1')
+subdir('Homework2')
