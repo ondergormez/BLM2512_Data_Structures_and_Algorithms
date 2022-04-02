@@ -1,5 +1,19 @@
 #include "Stack.h"
 
+int getRequiredBitCountForUnsigned(unsigned long value)
+{
+    if (value <= 255)
+        return 8;
+
+    if (value <= 65535)
+        return 16;
+
+    if (value <= 16777215)
+        return 24;
+
+    return 32;
+}
+
 int main(void)
 {
     Stack_t stack = { 0 };
