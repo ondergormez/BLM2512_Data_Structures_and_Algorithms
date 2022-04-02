@@ -4,3 +4,7 @@ executable('Stack',
            'main.c',
            'Stack.c',
            install : false)
+
+executable('StackSingleFile',
+           '21501035.c',
+           install : false)
