@@ -1,5 +1,6 @@
 #include "Stack.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -96,6 +97,12 @@ int main(void)
 {
     Stack_t stack = { 0 };
     int value = 0;
+    unsigned long bitCount = 0;
+    const char* pString = NULL;
+    unsigned long positiveValue = 0;
+    signed long negativeValue = 0;
+
+    printf("isStackEmpty: %d\n", isStackEmpty(&stack));
 
     pushToStack(&stack, 10);
     pushToStack(&stack, 15);
@@ -107,6 +114,60 @@ int main(void)
 
     peekValueFromStack(&stack, &value);
     printf("Peek value: %d\n", value);
+
+    printf("Input: 15\n");
+    positiveValue = 15;
+    bitCount = getRequiredBitCountForUnsigned(positiveValue);
+    printf("Required Bit Count: %u\n", bitCount);
+    pString = convertToString(positiveValue, bitCount);
+    printf("Value %u in bits: %s\n", positiveValue, pString);
+    stack.top = 0;
+    compareZeroAndOne(&stack, pString);
+
+    printf("Input: 1\n");
+    positiveValue = 1;
+    bitCount = getRequiredBitCountForUnsigned(positiveValue);
+    printf("Required Bit Count: %u\n", bitCount);
+    pString = convertToString(positiveValue, bitCount);
+    printf("Value %u in bits: %s\n", positiveValue, pString);
+    stack.top = 0;
+    compareZeroAndOne(&stack, pString);
+
+    printf("Input: 259\n");
+    positiveValue = 259;
+    bitCount = getRequiredBitCountForUnsigned(positiveValue);
+    printf("Required Bit Count: %u\n", bitCount);
+    pString = convertToString(positiveValue, bitCount);
+    printf("Value %u in bits: %s\n", positiveValue, pString);
+    stack.top = 0;
+    compareZeroAndOne(&stack, pString);
+
+    printf("Input: -1\n");
+    negativeValue = -1;
+    bitCount = getRequiredBitCountForSigned(negativeValue);
+    printf("Required Bit Count: %u\n", bitCount);
+    pString = convertToString((uint8_t)negativeValue, bitCount);
+    printf("Value %d in bits: %s\n", -1, pString);
+    stack.top = 0;
+    compareZeroAndOne(&stack, pString);
+
+    printf("Input: -128\n");
+    negativeValue = -128;
+    bitCount = getRequiredBitCountForSigned(negativeValue);
+    printf("Required Bit Count: %u\n", bitCount);
+    pString = convertToString((uint8_t)negativeValue, bitCount);
+    printf("Value %d in bits: %s\n", -128, pString);
+    stack.top = 0;
+    compareZeroAndOne(&stack, pString);
+
+    printf("Input: 85\n");
+    positiveValue = 85;
+    bitCount = getRequiredBitCountForUnsigned(positiveValue);
+    printf("Required Bit Count: %u\n", bitCount);
+    pString = convertToString(positiveValue, bitCount);
+    printf("Value %u in bits: %s\n", positiveValue, pString);
+    stack.top = 0;
+    compareZeroAndOne(&stack, pString);
 
     return 0;
 }
