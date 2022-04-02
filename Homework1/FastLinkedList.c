@@ -7,6 +7,19 @@
 
 #define MAX_ELEMENT_COUNT 10
 
+int calculateMaxLevelSize(int arrayLength)
+{
+    int levelSize = 2; /* Level 1 and Last Level(Empty Level) is guaranteed. */
+    int tempArrayLength = arrayLength;
+
+    while (tempArrayLength > 1) {
+        tempArrayLength = (tempArrayLength + 1) / 2;
+        levelSize++;
+    }
+
+    return levelSize;
+}
+
 FastLinkedListNode_t* createFastLinkedListNode()
 {
     // TODO : initializes all bytes in the allocated storage to zero
