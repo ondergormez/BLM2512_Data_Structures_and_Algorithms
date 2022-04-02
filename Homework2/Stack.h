@@ -12,3 +12,7 @@ typedef struct Stack {
 bool isStackEmpty(Stack_t* stack);
 
 bool isStackFull(Stack_t* stack);
+
+/* Returns true: success */
+/* Returns false: failure */
+bool pushToStack(Stack_t* stack, int value);
