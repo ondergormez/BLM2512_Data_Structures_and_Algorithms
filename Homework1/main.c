@@ -43,5 +43,46 @@ int main(void)
 
     findValue(tailOfHeadsLinkedList, 8);
 
+    // TODO: Küçükten büyüğe sıralı bir linki listeye ekleme işlemini sırayı koruyarak yapar
+    // [{3, 5, 9, 15}] linkli listesine 6 değeri eklemek istersek [3 5 6 9 15]
+    // [{3, 5, 9, 15}] linkli listesine 1 değeri eklemek istersek [1 3 5 9 15]
+    // [{3, 5, 9, 15}] linkli listesine 20 değeri eklemek istersek [3 5 9 15 20]
+    // [{3, 5, 9, 15}] linkli listesine 9 değeri eklemek istersek [3 5 9 9 15]
+    // DoublyLinkedListNode_t* insertNodeWithOrder(DoublyLinkedListNode_t* head, int value);
+    DoublyLinkedListNode_t* testHead = createNode();
+    DoublyLinkedListNode_t* testTail = NULL;
+
+    int inputData2[4] = { 3, 5, 9, 15 };
+    int arraySize = sizeof(inputData2) / sizeof(inputData2[0]);
+    printf("Size of inputArray is %d \n", arraySize);
+
+    int k = 0;
+    for (k = 0; k < arraySize; k++) {
+        if (k == 0) {
+            testTail = insertNode(testHead, inputData2[k]);
+            continue;
+        }
+
+        testTail = insertNode(testTail, inputData2[k]);
+    }
+
+    printLinkedList(testHead);
+    printf("********************* 6 Ekliyoruz *********************\n");
+    insertNodeWithOrder(testHead, 6);
+    printLinkedList(testHead);
+    printf("********************* 1 Ekliyoruz *********************\n");
+    insertNodeWithOrder(testHead, 1);
+    printLinkedList(testHead);
+    printf("********************* 20 Ekliyoruz *********************\n");
+    insertNodeWithOrder(testHead, 20);
+    printLinkedList(testHead);
+    printf("********************* 9 Ekliyoruz *********************\n");
+    insertNodeWithOrder(testHead, 9);
+    printLinkedList(testHead);
+
+    insertValueEachLevel(headsOfFastLinkedList, 30);
+
+    deleteValueFromEachLevel(headsOfFastLinkedList, 30);
+
     return 0;
 }

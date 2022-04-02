@@ -116,7 +116,7 @@ FastLinkedListNode_t* createFastLinkedListLevels(FastLinkedListNode_t* headsOfFa
 
 void findValue(FastLinkedListNode_t* tailOfHeadsLinkedList, int searchedValue)
 {
-    // TODO: Use function coming from Batuhan :)
+    // TODO: Use function for max level :)
     int currentLevel = 5;
     // TODO: reverse search heads of linked list
     for (FastLinkedListNode_t* current = tailOfHeadsLinkedList; current != NULL; current = current->previous) {
