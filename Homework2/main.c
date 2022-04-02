@@ -58,6 +58,40 @@ const char* convertToString(unsigned long value, int bitCount)
     return string;
 }
 
+void compareZeroAndOne(Stack_t* stack, const char* pString)
+{
+    int index = 0;
+    int value = 0;
+
+    while (pString[index] != NULL) {
+        if (isStackEmpty(stack))
+            pushToStack(stack, pString[index]);
+        else {
+            peekValueFromStack(stack, &value);
+            if (value == pString[index])
+                pushToStack(stack, pString[index]);
+            else
+                popFromStack(stack, &value);
+        }
+
+        ++index;
+    }
+
+    if (isStackEmpty(stack))
+        printf("0 and 1 count is equal.\n");
+    else {
+        int valuesInStack = 0;
+        peekValueFromStack(stack, &valuesInStack);
+
+        if (valuesInStack == '1')
+            printf("The number of Ones' (1) is more than Zero (0). %d additional 0 required.\n", stack->top);
+        else
+            printf("The number of Zeros' (0) is more than One (1). %d additional 1 required.\n", stack->top);
+    }
+
+    free((void*)pString);
+}
+
 int main(void)
 {
     Stack_t stack = { 0 };
