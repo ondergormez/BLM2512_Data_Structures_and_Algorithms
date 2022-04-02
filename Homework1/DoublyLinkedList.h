@@ -20,6 +20,13 @@ void printNode(DoublyLinkedListNode_t* node);
 // TODO: Inserts new node from the rear of the linked list
 DoublyLinkedListNode_t* insertNode(DoublyLinkedListNode_t* tail, int value);
 
+// TODO: Küçükten büyüğe sıralı bir linki listeye ekleme işlemini sırayı koruyarak yapar
+// [3 5 9 15] linkli listesine 6 değeri eklemek istersek [3 5 6 9 15]
+// [3 5 9 15] linkli listesine 1 değeri eklemek istersek [1 3 5 9 15]
+// [3 5 9 15] linkli listesine 20 değeri eklemek istersek [3 5 9 15 20]
+// [3 5 9 15] linkli listesine 9 değeri eklemek istersek [3 5 9 9 15]
+DoublyLinkedListNode_t* insertNodeWithOrder(DoublyLinkedListNode_t* head, int value);
+
 // TODO: Add comment
 bool deleteNode(DoublyLinkedListNode_t* node);
 

@@ -43,6 +43,60 @@ DoublyLinkedListNode_t* insertNode(DoublyLinkedListNode_t* tail, int value)
     return newNode;
 }
 
+DoublyLinkedListNode_t* insertNodeWithOrder(DoublyLinkedListNode_t* head, int value)
+{
+    DoublyLinkedListNode_t* newNode = createNode();
+    newNode->value = value;
+
+    // [] boş bir linkli listeye 10 değeri eklemek istersek [10]
+    if (head->next == NULL) {
+        head->next = newNode;
+
+        newNode->previous = head;
+        newNode->next = NULL;
+        return newNode;
+    }
+
+    DoublyLinkedListNode_t* currentNode = NULL;
+    for (currentNode = head->next; currentNode != NULL; currentNode = currentNode->next) {
+
+        if (value > currentNode->value) {
+            // [3 5 9 15] linkli listesine 20 değeri eklemek istersek [3 5 9 15 20]
+            if (currentNode->next == NULL) {
+                currentNode->next
+                    = newNode;
+
+                newNode->previous = currentNode;
+                newNode->next = NULL;
+                return newNode;
+            }
+            continue;
+        }
+
+        // [3 5 9 15] linkli listesine 1 değeri eklemek istersek [1 3 5 9 15]
+        if (currentNode->previous == head) {
+            head->next = newNode;
+
+            newNode->previous = head;
+            newNode->next = currentNode;
+            currentNode->previous = newNode;
+
+            return newNode;
+        }
+
+        // [3 5 9 15] linkli listesine 6 değeri eklemek istersek [3 5 6 9 15]
+        // [3 5 9 15] linkli listesine 9 değeri eklemek istersek [3 5 9 9 15]
+        newNode->previous = currentNode->previous;
+        currentNode->previous->next = newNode;
+        currentNode->previous = newNode;
+        newNode->next = currentNode;
+
+        return newNode;
+    }
+
+    return newNode;
+}
+
 bool deleteNode(DoublyLinkedListNode_t* node)
 {
     if (node == NULL) {
