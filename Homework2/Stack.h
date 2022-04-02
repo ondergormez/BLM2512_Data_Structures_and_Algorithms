@@ -16,3 +16,7 @@ bool isStackFull(Stack_t* stack);
 /* Returns true: success */
 /* Returns false: failure */
 bool pushToStack(Stack_t* stack, int value);
+
+/* Returns true: success */
+/* Returns false: failure */
+bool popFromStack(Stack_t* stack, int* pValue);

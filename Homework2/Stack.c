@@ -38,3 +38,25 @@ bool pushToStack(Stack_t* stack, int value)
 
     return true;
 }
+
+bool popFromStack(Stack_t* stack, int* pValue)
+{
+    if (stack == NULL) {
+        printf("In function popFromStack(): Unable to pop data from the stack. Stack pointer null!");
+        return false;
+    }
+
+    if (pValue == NULL) {
+        printf("In function popFromStack(): Unable to pop data from the stack. Value pointer null!");
+        return false;
+    }
+
+    if (isStackEmpty(stack)) {
+        printf("In function popFromStack(): Unable to pop data from the stack. Stack empty!");
+        return false;
+    }
+
+    *pValue = stack->item[--stack->top];
+
+    return true;
+}
