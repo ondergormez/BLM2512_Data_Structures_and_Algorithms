@@ -10,3 +10,4 @@ catch2_dep = catch2_proj.dependency('Catch2')
 
 subdir('Homework1')
 subdir('Homework2')
+subdir('Practice1')
