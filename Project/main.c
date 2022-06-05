@@ -42,7 +42,6 @@
 #define VISITED 1
 #define NOT_VISITED 0
 
-/* TODO: Fonksiyonların yerlerini değiştirelim. */
 void addApples(char* matrixForPrint, int numberOfApples);
 void printMaze(char* matrixForPrint);
 void printMatrix(int* matrix, int rowCount, int columnCount);
@@ -81,7 +80,7 @@ int main(void)
     char* matrixForPrint = NULL;
     char* matrixForDFS = NULL;
     int* adjacencyMatrix = NULL;
-    /* TODO: Get from other project. Not duplicate the source files */
+
     Stack_t stack = { 0 };
 
     inputFile = fopen(FILE_NAME, "r");

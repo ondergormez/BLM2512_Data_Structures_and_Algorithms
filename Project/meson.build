@@ -5,6 +5,6 @@ executable('DeepFirstSearchAlgoritm',
            'Stack.c',
            install : false)
 
-# executable('DeepFirstSearchAlgoritm',
-#            '21501035.c',
-#            install : false)
+executable('DFSSingleFile',
+           '21501035.c',
+           install : false)
