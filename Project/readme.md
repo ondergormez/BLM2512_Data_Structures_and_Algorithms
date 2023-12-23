@@ -5,6 +5,8 @@
 
 ### [Video Linki](https://youtu.be/rB_eiapGdTk)
 
+[![Youtube Link](https://img.youtube.com/vi/rB_eiapGdTk/maxresdefault.jpg)](https://www.youtube.com/watch?v=rB_eiapGdTk)
+
 # Kısaca Detaylar
 
 * Projeyi **Linux'ta** gerçekleştirdim. **Windows** bilgisayarda **test edemedim**.

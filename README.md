@@ -1,5 +1,10 @@
 # BLM2512_Data_Structures_and_Algorithms
 
+## Proje
+
+[Proje Klasör Linki](Project)
+[![Youtube Link](https://img.youtube.com/vi/rB_eiapGdTk/maxresdefault.jpg)](https://www.youtube.com/watch?v=rB_eiapGdTk)
+
 ## Kaynaklar
 
 1. [Quickstart for GitHub Actions](https://docs.github.com/en/actions/quickstart)
